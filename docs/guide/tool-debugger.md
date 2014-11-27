@@ -44,6 +44,15 @@ server, add the parameter `allowedIPs` to the configuration to whitelist your IP
     ]
 ]
 ```
+If you are using the YII_ENV_DEV you have to modify it at the end of the web.php
+```php
+if (YII_ENV_DEV) {
+
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => ['1.2.3.4', '127.0.0.1', '::1'],
+    ];
+```
 
 If you are using `enableStrictParsing` URL manager option, add the following to your `rules`:
 
